@@ -18,27 +18,17 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
-char	*ft_strcat(char *dest, char *src)
+char *ft_strcat(char *dest, char *src)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
+	while (*dest)
+		dest++;
+	while (*src)
+		*(dest++) = *(src++);
+	*dest = '\0';
 	return (dest);
 }
 
@@ -50,30 +40,29 @@ char 	*ft_strjoin(int size, char **strs, char *sep)		//size 문자열개수
 	char	*cat;
 
 	i = 0;
+	total_size = 0;
 	while (i < size)
-		total_size += ft_strlen(strs[i++]);
+	{
+		total_size += ft_strlen(strs[i]);
+		i++;
+	}
 	total_size += ft_strlen(sep) * (size - 1);
-	arr = (char *)malloc(sizeof(char) * total_size + 1);
+	arr = (char *)malloc(sizeof(char) * (total_size + 1));
 	i = 0;
-	while (i < size - 1)
+	cat = arr;
+	while (i < size)
 	{
-		strs[i] = ft_strcat(strs[i], sep);
+		cat = ft_strcat(cat, strs[i]);
+		if (i != size - 1)
+			cat = ft_strcat(cat, sep);
 		i++;
 	}
-	i = 0;
-	while (strs[0][i])
-	{
-		printf("%c", strs[0][i]);
-		i++;
-	}
-
-	printf("%d\n", total_size);
-	return (0);
+	cat[total_size] = '\0';
+	return (arr);
 }
 
 int	main(void)
 {
-	int	a;
-	char *arr[6] = {"asdf", "asdf", "Sdfg", "asdf" ,"asdg", "sdf"};
-	ft_strjoin(6, arr, "ab");
+	char *arr[6] = {"abccds", "bsdfga", "sdfab", "sdfba" ,"ab", "ba"};
+	printf("%s", ft_strjoin(6, arr, "YY"));
 }
