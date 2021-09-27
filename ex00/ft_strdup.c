@@ -6,12 +6,10 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 19:36:06 by taehykim          #+#    #+#             */
-/*   Updated: 2021/09/25 19:43:17 by taehykim         ###   ########.fr       */
+/*   Updated: 2021/09/27 12:51:32 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdlib.h>
-#include <stdio.h>
 
 char	*ft_strdup(char *src)
 {
@@ -32,9 +30,4 @@ char	*ft_strdup(char *src)
 		i--;
 	}
 	return (arr);
-}
-
-int	main(void)
-{
-	printf("%s", ft_strdup("asdf"));
 }

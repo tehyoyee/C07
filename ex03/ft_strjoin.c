@@ -6,7 +6,7 @@
 /*   By: taehykim <taehykim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 19:44:49 by taehykim          #+#    #+#             */
-/*   Updated: 2021/09/25 21:12:55 by taehykim         ###   ########.fr       */
+/*   Updated: 2021/09/27 21:50:54 by taehykim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, char *src)
 {
 	while (*dest)
 		dest++;
@@ -32,7 +32,7 @@ char *ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char 	*ft_strjoin(int size, char **strs, char *sep)		//size 문자열개수
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		total_size;
 	int		i;

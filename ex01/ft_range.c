@@ -1,6 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
 
 int	*ft_range(int min, int max)
 {
@@ -20,15 +18,4 @@ int	*ft_range(int min, int max)
 		arr[i++] = min++;
 	}
 	return (arr);
-}
-
-
-int main(void)
-{
-	int *arr;
-
-	arr = ft_range(1,3);
-	while (*arr)
-		printf("%d ", *(arr++));
-	printf("\n");
 }
