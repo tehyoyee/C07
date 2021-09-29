@@ -12,6 +12,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+char	*ft_make_result(int size, int total_size, char **strs, char *sep);
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -36,9 +38,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		total_size;
 	int		i;
-	char	*arr;
-	char	*cat;
 
+	if (size == 0)
+		return ((char*)malloc(sizeof(char)));
+	if (size < 0)
+		return (0);
 	i = 0;
 	total_size = 0;
 	while (i < size)
@@ -47,6 +51,16 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	total_size += ft_strlen(sep) * (size - 1);
+
+	return (ft_make_result(size, total_size, strs, sep));
+}
+
+char	*ft_make_result(int size, int total_size, char **strs, char *sep)
+{
+	char *arr;
+	char *cat;
+	int	i;
+	
 	arr = (char *)malloc(sizeof(char) * (total_size + 1));
 	i = 0;
 	cat = arr;
